@@ -36,7 +36,6 @@ Sliderbg.addEventListener('mousedown', (e) => {
     conditionMoseClick = true ;
     prevScreenX = e.screenX;
     prevScrollLeft = Sliderbg.scrollLeft;
-    console.log(prevScrollLeft)
 })
 
 Sliderbg.addEventListener('mouseup', () => {
