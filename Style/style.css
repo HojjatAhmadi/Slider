@@ -19,6 +19,7 @@
     align-items: center;
     flex-direction: row-reverse;
     gap: 20px;
+    transition: 500ms;
 }
 
 #slider-side button{
@@ -31,6 +32,7 @@
     background-color: transparent !important;
     border: none;
     cursor: pointer;
+    transition: 500ms;
 }
 
 #left{
@@ -46,6 +48,14 @@
     cursor:grab;
     gap: 50px;
     transition: 500ms;
+}
+
+.slide{
+    scroll-behavior: smooth;
+}
+
+.drag{
+    scroll-behavior: auto;
 }
 
 #slider-bg img{
