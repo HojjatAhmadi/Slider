@@ -5,30 +5,18 @@ const LeftButton = document.querySelector('#left')
 
 let conditionMoseClick = false , prevScreenX , prevScrollLeft ;
 
-function RemoveRight(){
-    if (Sliderbg.scrollLeft == 1047){
+function RemoveButtonDisplay(){
+    if (Sliderbg.scrollLeft == 3493){
         RightButton.style.opacity = 0;
     }
     else{
         RightButton.style.opacity = 1;
     }
-}
-
-function RemoveLeft(){
     if (Sliderbg.scrollLeft == 0){
         LeftButton.style.opacity = 0;
     }
     else{
         LeftButton.style.opacity = 1;
-    }
-}
-
-function RemoveDisplayButton(id) {
-    if (id == 'right'){
-        RemoveRight()
-    }
-    else{
-        RemoveLeft()
     }
 }
 
@@ -39,7 +27,8 @@ Sliderbg.addEventListener('mousedown', (e) => {
 })
 
 Sliderbg.addEventListener('mouseup', () => {
-     conditionMoseClick = false ;
+    conditionMoseClick = false ;
+    Sliderbg.className = 'slide'
 })
 
 Sliderbg.addEventListener('mousemove', (e) => {
@@ -48,51 +37,16 @@ Sliderbg.addEventListener('mousemove', (e) => {
         Sliderbg.scrollLeft = prevScrollLeft - pos ;
         e.preventDefault() ;
         Sliderbg.className = 'drag'
-        if (Sliderbg.scrollLeft == 0 ){
-            RemoveDisplayButton('left')
-        }
-        else{
-            RemoveDisplayButton('left')
-        }
-        if (Sliderbg.scrollLeft == 1047){
-            RemoveDisplayButton('right')
-        }
-        else{
-            RemoveDisplayButton('right')
-        }
+        RemoveButtonDisplay()
     }
 })
 
 RightButton.addEventListener('click', () => {
-    Sliderbg.scrollLeft += ImageSlider.offsetWidth + 30
-    Sliderbg.className = 'slide'
-    if (Sliderbg.scrollLeft == 0 ){
-        RemoveDisplayButton('left')
-    }
-    else{
-        RemoveDisplayButton('left')
-    }
-    if (Sliderbg.scrollLeft == 1047){
-        RemoveDisplayButton('right')
-    }
-    else{
-        RemoveDisplayButton('right')
-    }
+    Sliderbg.scrollLeft += ImageSlider.offsetWidth + 20
+    RemoveButtonDisplay()
 })
 
 LeftButton.addEventListener('click', () => {
-    Sliderbg.scrollLeft -= ImageSlider.offsetWidth + 30
-    Sliderbg.className = 'slide'
-    if (Sliderbg.scrollLeft == 0 ){
-        RemoveDisplayButton('left')
-    }
-    else{
-        RemoveDisplayButton('left')
-    }
-    if (Sliderbg.scrollLeft == 1047){
-        RemoveDisplayButton('right')
-    }
-    else{
-        RemoveDisplayButton('right')
-    }
+    Sliderbg.scrollLeft -= ImageSlider.offsetWidth + 20
+    RemoveButtonDisplay()
 })
